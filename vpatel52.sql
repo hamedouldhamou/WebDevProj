@@ -24,33 +24,8 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `car`
---
 
-DROP TABLE IF EXISTS `Car`;
-CREATE TABLE IF NOT EXISTS `Car` (
-  `CarID` varchar(3) NOT NULL,
-  `Car` text,
-  `Dates` date DEFAULT NULL,
-  `Location` text,
-  `Available` bit(1) DEFAULT NULL,
-  `Price` decimal(10,0) DEFAULT NULL,
-  PRIMARY KEY (`CarID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `car`
---
-
-INSERT INTO `Car` (`CarID`, `Car`, `Dates`, `Location`, `Available`, `Price`) VALUES
-('C01', 'Honda Civic', '2017-11-30', 'Atlanta', b'1', '75'),
-('C02', 'Toyota Camry', '2017-12-30', 'Atlanta', b'1', '85'),
-('CO3', 'Lincoln Navigator', '2017-12-22', 'Atlanta', b'1', '90'),
-('CO4', 'Hyundai Santa Fe', '2017-12-15', 'Atlanta', b'1', '55'),
-('CO5', 'Lincoln Navigator', '2017-12-22', 'Atlanta', b'1', '90'),
-('CO6', 'Chevy Suburban', '2017-12-19', 'Atlanta', b'1', '70'),
-('CO7', 'Chevy Tahoe', '2017-12-14', 'Atlanta', b'1', '50');
 
 -- --------------------------------------------------------
 
@@ -61,7 +36,6 @@ INSERT INTO `Car` (`CarID`, `Car`, `Dates`, `Location`, `Available`, `Price`) VA
 DROP TABLE IF EXISTS `Cart`;
 CREATE TABLE IF NOT EXISTS `Cart` (
   `UserID` int(11) NOT NULL,
-  `Car` varchar(3) DEFAULT NULL,
   `Spot` varchar(3) DEFAULT NULL,
   `Plane` varchar(4) DEFAULT NULL,
   `Price` decimal(10,0) DEFAULT NULL,
@@ -72,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `Cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `Cart` (`UserID`, `Car`, `Spot`, `Plane`, `Price`) VALUES
-(884, NULL, NULL, 'FL4A', '295');
+INSERT INTO `Cart` (`UserID`, `Spot`, `Plane`, `Price`) VALUES
+(884, NULL, 'FL4A', '295');
 
 -- --------------------------------------------------------
 
@@ -84,7 +58,6 @@ INSERT INTO `Cart` (`UserID`, `Car`, `Spot`, `Plane`, `Price`) VALUES
 DROP TABLE IF EXISTS `Checkout`;
 CREATE TABLE IF NOT EXISTS `Checkout` (
   `UserID` varchar(11) NOT NULL,
-  `Car` varchar(3) DEFAULT NULL,
   `Spot` varchar(3) DEFAULT NULL,
   `Plane` varchar(4) DEFAULT NULL,
   `Price` decimal(10,0) DEFAULT NULL,
@@ -95,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `Checkout` (
 -- Dumping data for table `checkout`
 --
 
-INSERT INTO `Checkout` (`UserID`, `Car`, `Spot`, `Plane`, `Price`) VALUES
-('884', NULL, NULL, 'Fl1A', '200');
+INSERT INTO `Checkout` (`UserID`, `Spot`, `Plane`, `Price`) VALUES
+('884', NULL, 'Fl1A', '200');
 
 -- --------------------------------------------------------
 

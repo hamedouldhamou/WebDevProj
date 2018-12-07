@@ -23,7 +23,6 @@ include_once('db.php')
         <ul>
             <?php if (isset($_SESSION['username'])) { ?>
                 <li><a href="flightPick.php">Flight</a></li>
-                <li><a href="carRentPick.php">Rent Car</a></li>
                 <li><a href="prePayParking.php">Parking</a></li>
                 <li style="float:right"><a class="active" href="#">User: <?php echo $_SESSION['username']; ?></a></li>
                 <li style="float:right"><a href="logout.php">Logout</a></li>

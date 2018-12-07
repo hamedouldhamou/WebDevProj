@@ -47,7 +47,6 @@ if (isset($_POST['payment'])) {
         <ul>
             <?php if (isset($_SESSION['username'])) { ?>
                 <li><a href="flightPick.php">Flight</a></li>
-                <li><a href="carRentPick.php">Rent Car</a></li>
                 <li><a href="prePayParking.php">Parking</a></li>
                 <li style="float:right"><a class="active" href="#">User: <?php echo $_SESSION['username']; ?></a></li>
                 <li style="float:right"><a href="logout.php">Logout</a></li>
@@ -79,19 +78,17 @@ if (isset($_POST['payment'])) {
         $total = $_SESSION['total'];
         echo $total;
 
-        $query = "INSERT INTO Checkout(UserID, Car, Spot, Plane, Price) SELECT UserID, Car, Spot, Plane, Price FROM Cart Where UserID = $id";
+        $query = "INSERT INTO Checkout(UserID, Spot, Plane, Price) SELECT UserID, Spot, Plane, Price FROM Cart Where UserID = $id";
         $response = mysqli_query($con, $query);
         $query = "INSERT INTO Checkout(Price) '$total' WHERE UserID = '$id'";
         $query = "SELECT * From Checkout WHERE UserID=$id";
         $response = mysqli_query($con, $query);
         $row = mysqli_fetch_row($response);
-        $car = $row[1];
         $spot = $row[2];
         echo $spot;
         $plane = $row[3];
 
-        $query = "UPDATE Car SET Available = 0 WHERE CarID =  '$car'";
-        $response = mysqli_query($con, $query);
+        
         $query = "UPDATE Parking SET Available = 0 WHERE ParkingID =  '$spot'";
         $response = mysqli_query($con, $query);
         $query = "UPDATE Plane SET Available = 0 WHERE SeatID =  '$plane'";

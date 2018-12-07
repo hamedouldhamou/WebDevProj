@@ -35,7 +35,6 @@ $_SESSION['total'] = $total;
             <?php if (isset($_SESSION['username'])) { ?>
                 <li><a href="main.php">Home</a></li>
                 <li><a href="flightPick.php">Flight</a></li>
-                <li><a href="carRentPick.php">Rent Car</a></li>
                 <li><a href="prePayParking.php">Parking</a></li>
                 <li style="float:right"><a class="active" href="#">User: <?php echo $_SESSION['username']; ?></a></li>
                 <li style="float:right"><a href="logout.php">Logout</a></li>
@@ -61,10 +60,8 @@ $_SESSION['total'] = $total;
             $firstletter = substr($item, 0, 1);
 //            echo "</br>";
 //            echo $firstletter;
-            if ($firstletter == "C") {
-                $query = "INSERT INTO Cart(UserID, Car) VALUES($id,'$item') ON DUPLICATE KEY UPDATE UserID='$id', Car='$item'";
-                $response = mysqli_query($con, $query);
-            } else if ($firstletter == "P") {
+          
+            if ($firstletter == "P") {
 //                echo "goin here?";
                 $query = "INSERT INTO Cart(UserID, Spot) VALUES($id,'$item') ON DUPLICATE KEY UPDATE UserID='$id', Spot='$item'";
                 $response = mysqli_query($con, $query);
@@ -79,9 +76,8 @@ $_SESSION['total'] = $total;
             $query = "SELECT * From Cart WHERE UserID=$id";
             $response = mysqli_query($con, $query);
             $row = mysqli_fetch_row($response);
-            $car = $row[1];
-            $spot = $row[2];
-            $plane = $row[3];
+            $spot = $row[1];
+            $plane = $row[2];
 
             echo "</br>";
 
@@ -94,14 +90,7 @@ $_SESSION['total'] = $total;
             echo "<b>Price:</b> $" . $row[5] . "<br><br>";
             $total += $row[5];
 
-            $query = "SELECT * From Car WHERE CarID='$car'";
-            $response = mysqli_query($con, $query);
-            $row = mysqli_fetch_row($response);
-            echo "<b>Car Number: </b>" . $car . "<br>";
-            echo "<b>Car:</b> ";
-            echo $row[1] . " at " . $row[3] . "<br>";
-            echo "<b>Price:</b> $" . $row[5] . "<br><br>";
-            $total += $row[5];
+          
 
             echo "</br>";
 

@@ -17,7 +17,6 @@
         <h1>Final Project</h1>
         <ul>
             <li><a href="flight.html">Flight</a></li>
-            <li><a href="carRent.html">Rent Car</a></li>
             <li><a href="prePaid.html">Parking</a></li>
             <li style="float:right"><a class="active" href="#about">About</a></li>
         </ul>

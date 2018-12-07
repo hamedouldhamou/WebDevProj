@@ -11,7 +11,7 @@ if (isset($_REQUEST["username"])) {
     $lastname = mysqli_real_escape_string($con, $_REQUEST['lastname']);
     $username = mysqli_real_escape_string($con, $_REQUEST['username']);
     $password = mysqli_real_escape_string($con, $_REQUEST['password']);
-    $query = "INSERT INTO users(Username, Password, Firstname, Lastname) VALUES('$username','$password','$firstname','$lastname')";
+    $query = "INSERT INTO Users(Username, Password, Firstname, Lastname) VALUES('$username','$password','$firstname','$lastname')";
     $response = mysqli_query($con, $query);
     if ($response) {
         $success = "Register Success! <a href='login.php'>Click here to go to Login</a>";
