@@ -1,0 +1,50 @@
+<html>
+<head class="header"><title>Final Project</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="navbar.css"/>
+</head>
+<style>
+    body {
+        background-image: url("carRental.jpg");
+        background-size: cover;
+    }
+
+</style>
+<body>
+<div class="container">
+    <div class="content-head">
+        <h1>Rent-a-Car</h1>
+        <ul>
+            <li><a href="flight.html">Flight</a></li>
+            <li><a href="carRent.html">Rent Car</a></li>
+            <li><a href="prePaid.html">Parking</a></li>
+            <li style="float:right"><a class="active" href="#about">About</a></li>
+        </ul>
+        <br/><br/>
+
+    </div>
+
+    <div class="content-main">
+        <form action="carRent.php" method="post">
+            <h3>Select a location </h3>
+            <select name="Location">
+                <option value="Atlanta">Atlanta, GA</option>
+                <option value="Chicago">Chicago, IL</option>
+                <option value="San Fransisco">San Fransisco, CA</option>
+                <option value="Denver">Denver, CO</option>
+                <option value="Seattle">Seattle, WA</option>
+                <option value="Houston">Houston, TX</option>
+                <option value="Boston">Boston, MA</option>
+                <option value="Miami">Miami, FL</option>
+            </select>
+            <br/>
+            <h3>Enter A Date</h3>
+            <label>Date</label>
+            <input type="date" name="date"/>
+            <input type="submit" name="submit" value="Submit"/>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
