@@ -60,7 +60,7 @@ if(isset($_SESSION['username'])=="") {
         $location = mysqli_real_escape_string($con, $_POST["Location"]);
         $flightDate = $_POST["date"];
 
-        $query = "SELECT * FROM plane WHERE Location = '$location' AND Available = 'yes'";
+        $query = "SELECT * FROM Plane WHERE Location = '$location' AND Available = 1";
 
         $response = mysqli_query($con, $query);
 

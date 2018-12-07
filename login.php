@@ -13,7 +13,7 @@ if(isset($_SESSION['username'])!="") {
 if (isset($_POST["username"])) {
     $username = stripslashes($_REQUEST['username']);
     $password = stripslashes($_REQUEST['password']);
-    $query = "SELECT UserID From users Where Username= '$username' AND Password='$password'";
+    $query = "SELECT UserID From Users Where Username= '$username' AND Password='$password'";
     $response = mysqli_query($con, $query);
     $rows = mysqli_num_rows($response);
     if ($rows == 1) {
